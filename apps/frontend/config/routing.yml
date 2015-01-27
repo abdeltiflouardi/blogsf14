@@ -1,0 +1,20 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+post:
+  class:   sfDoctrineRouteCollection
+  options: { model: Post }
+
+post_show:
+  url:   /:id/:title_slug
+  param: { module: post, action: show }  
+  class:   sfDoctrineRoute
+  options: { model: Post, type: object }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+
+# default rules
+homepage:
+  url:   /
+  param: { module: default, action: index }
